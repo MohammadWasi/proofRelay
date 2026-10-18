@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/security",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Workspace paths, redaction and process controls",
+  "license": "Apache-2.0"
+}

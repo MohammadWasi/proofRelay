@@ -1,0 +1,8 @@
+ProofRelay
+Copyright 2026 ProofRelay contributors
+
+Original ProofRelay source is licensed under Apache License 2.0.
+Third-party dependencies retain their respective licenses and notices.
+Claude Code and OpenAI Codex are optional external integrations; their
+software and services are governed by their own terms and are not part
+of ProofRelay's open-source core.

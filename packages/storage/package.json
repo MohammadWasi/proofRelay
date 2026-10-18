@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/storage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Transactional SQLite persistence",
+  "license": "Apache-2.0"
+}

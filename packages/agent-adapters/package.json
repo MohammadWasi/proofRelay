@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/agent-adapters",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Optional installed agent integrations",
+  "license": "Apache-2.0"
+}

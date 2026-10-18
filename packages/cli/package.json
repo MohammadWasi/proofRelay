@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Command-line interface and installers",
+  "license": "Apache-2.0"
+}

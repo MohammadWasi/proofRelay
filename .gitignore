@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.proofrelay/
+coverage/
+*.tgz
+.env
+.env.*
+!.env.example
+*.proofrelay-backup-*
+.DS_Store

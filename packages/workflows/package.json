@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/workflows",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-component coordination workflows",
+  "license": "Apache-2.0"
+}

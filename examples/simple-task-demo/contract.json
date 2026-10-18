@@ -1,0 +1,10 @@
+{
+  "objective": "Verify addition and preserve enough state for another assistant to continue",
+  "scope": ["sum.cjs", "check.cjs"],
+  "exclusions": ["No deployment, network calls or package installation"],
+  "deliverables": ["A sum function and independently observed checks"],
+  "commands": [{ "id": "test", "executable": "node", "args": ["check.cjs"], "timeoutMs": 5000 }],
+  "criteria": [{ "id": "sum-behavior", "description": "Positive and negative addition checks exit zero", "commandIds": ["test"] }],
+  "policy": { "allowedOperations": ["read", "edit", "test"], "requiresHumanReview": false },
+  "limits": { "maxAttempts": 3, "timeoutMs": 10000, "retryBackoffMs": 1000 }
+}

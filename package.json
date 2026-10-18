@@ -1,0 +1,39 @@
+{
+  "name": "proofrelay",
+  "version": "0.1.0",
+  "description": "Local-first work contracts, agent continuity, and independent verification",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=24.18.0" },
+  "packageManager": "pnpm@11.25.0",
+  "bin": { "proofrelay": "dist/cli.js", "proofrelay-mcp": "dist/mcp.js" },
+  "files": ["dist", "schemas", "packages/skills", "examples", "README.md", "LICENSE", "NOTICE", "SECURITY.md", "docs"],
+  "scripts": {
+    "build": "node scripts/build.mjs && tsx scripts/schemas.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint packages tests scripts",
+    "test": "vitest run",
+    "check": "pnpm typecheck && pnpm lint && pnpm build && pnpm test",
+    "proofrelay": "tsx packages/cli/src/index.ts",
+    "mcp": "tsx packages/mcp-server/src/index.ts",
+    "demo": "node examples/simple-task-demo/demo.mjs",
+    "audit:licenses": "node scripts/audit-licenses.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.3.1",
+    "@modelcontextprotocol/server": "2.3.1",
+    "commander": "14.0.3",
+    "jsonc-parser": "3.3.1",
+    "smol-toml": "1.9.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "eslint": "10.13.0",
+    "esbuild": "0.28.2",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.2",
+    "vitest": "5.0.5"
+  }
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "name": "@modelcontextprotocol/client",
+    "versions": [
+      "2.3.1"
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://modelcontextprotocol.io"
+  },
+  {
+    "name": "@modelcontextprotocol/core",
+    "versions": [
+      "2.3.1"
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://modelcontextprotocol.io"
+  },
+  {
+    "name": "@modelcontextprotocol/server",
+    "versions": [
+      "2.3.1"
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://modelcontextprotocol.io"
+  },
+  {
+    "name": "commander",
+    "versions": [
+      "14.0.3"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/tj/commander.js#readme"
+  },
+  {
+    "name": "cross-spawn",
+    "versions": [
+      "7.0.6"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/moxystudio/node-cross-spawn"
+  },
+  {
+    "name": "eventsource",
+    "versions": [
+      "3.0.7"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/EventSource/eventsource#readme"
+  },
+  {
+    "name": "eventsource-parser",
+    "versions": [
+      "3.1.1"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/rexxars/eventsource-parser#readme"
+  },
+  {
+    "name": "jose",
+    "versions": [
+      "6.2.12"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/panva/jose"
+  },
+  {
+    "name": "jsonc-parser",
+    "versions": [
+      "3.3.1"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/microsoft/node-jsonc-parser#readme"
+  },
+  {
+    "name": "path-key",
+    "versions": [
+      "3.1.1"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/sindresorhus/path-key#readme"
+  },
+  {
+    "name": "pkce-challenge",
+    "versions": [
+      "5.0.1"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/crouchcd/pkce-challenge#readme"
+  },
+  {
+    "name": "shebang-command",
+    "versions": [
+      "2.0.0"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/kevva/shebang-command#readme"
+  },
+  {
+    "name": "shebang-regex",
+    "versions": [
+      "3.0.0"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/sindresorhus/shebang-regex#readme"
+  },
+  {
+    "name": "zod",
+    "versions": [
+      "4.6.7"
+    ],
+    "license": "MIT",
+    "homepage": "https://zod.dev"
+  },
+  {
+    "name": "isexe",
+    "versions": [
+      "2.0.0"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/isaacs/isexe#readme"
+  },
+  {
+    "name": "which",
+    "versions": [
+      "2.0.2"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/isaacs/node-which#readme"
+  },
+  {
+    "name": "smol-toml",
+    "versions": [
+      "1.9.1"
+    ],
+    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/squirrelchat/smol-toml#readme"
+  }
+]

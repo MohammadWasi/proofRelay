@@ -1,0 +1,20 @@
+import { execFileSync } from 'node:child_process';
+import { cp, mkdtemp } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const workspace = await mkdtemp(join(tmpdir(), 'proofrelay-demo-'));
+const source = fileURLToPath(new URL('.', import.meta.url));
+const cli = fileURLToPath(new URL('../../dist/cli.js', import.meta.url));
+for (const name of ['sum.cjs', 'check.cjs', 'contract.json']) await cp(join(source, name), join(workspace, name));
+const run = (...args) => JSON.parse(execFileSync(process.execPath, [cli, '--workspace', workspace, '--json', ...args], { encoding: 'utf8' }));
+run('init');
+const work = run('task', 'add', '--contract', 'contract.json');
+run('checkpoint', work.contract.id, '--agent', 'claude', '--summary', 'Sum is implemented; independent verification is outstanding.', '--next', 'Review the contract and approve the test command.', '--files', 'sum.cjs');
+run('decision', work.contract.id, '--agent', 'claude', '--text', 'Use the built-in Node assertion library; no test dependency required.');
+const handoff = run('handoff', '--task', work.contract.id, '--agent', 'claude');
+const base = `${JSON.stringify(process.execPath)} ${JSON.stringify(cli)} --workspace ${JSON.stringify(workspace)}`;
+console.log(`Demo created in ${workspace}. No model or approved command has been executed.\n`);
+console.log(`Task: ${work.contract.id}\nHandoff: ${handoff.id}\n`);
+console.log(`Continue in your terminal:\n${base} get-handoff ${handoff.id}\n${base} approve ${work.approval.id}\n${base} verify ${work.contract.id}\n${base} status`);

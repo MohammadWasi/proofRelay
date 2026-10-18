@@ -1,0 +1,8 @@
+{
+  "name": "@proofrelay/mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Official SDK STDIO interface",
+  "license": "Apache-2.0"
+}
