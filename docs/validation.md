@@ -1,5 +1,13 @@
 # Observed validation — 2026-10-19
 
+## npm beta preparation
+
+For `0.1.0-beta.1`, `pnpm check` passed typechecking, lint, build/schema generation and **71 tests, with 2 explicitly gated skips across 9 test files**. The added regression checks that the CLI version and actual MCP handshake match the root package version. `pnpm audit` reported no known vulnerabilities; the runtime license inventory still contains 17 packages.
+
+A fresh source copy without `dist` reproduced the original packaging defect: both executables were absent from `npm pack --dry-run`. After adding the `prepack` build, another fresh source copy ran `pnpm install --frozen-lockfile` and `npm pack` without a separate build command. Its tarball included both executable entry points. A separate consumer installed that tarball using `npm install --ignore-scripts --omit=dev`, with no build tools required, then passed version/help checks, SQLite initialization, both client configuration installers, durable task creation/readback and the real MCP `doctor` check (13 tools and a successful `relay_get_status` call). These preparation checks do not assert registry publication or live model execution.
+
+## Initial implementation validation
+
 Local environment: macOS, Node **24.18.0**, pnpm **11.25.0**. The repository began empty and was initialized locally. The local checks below preceded public repository creation. The source was subsequently pushed to [MohammadWasi/proofRelay](https://github.com/MohammadWasi/proofRelay) with explicit user authorization. No registry packages were published, real client settings modified, or model requests made during these checks.
 
 ## Automated gate

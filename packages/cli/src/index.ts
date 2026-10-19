@@ -11,8 +11,9 @@ import { CreateWorkInputSchema, type CreateWorkInput } from '../../contracts/src
 import { safePath, sanitize } from '../../security/src/index.js';
 import { connectClients, type ClientName } from './integrations.js';
 import { doctor } from './doctor.js';
+import packageJson from '../../../package.json' with { type: 'json' };
 
-const program = new Command().name('proofrelay').version('0.1.0')
+const program = new Command().name('proofrelay').version(packageJson.version)
   .description('Local work contracts, agent continuity, and independent verification.')
   .option('--workspace <path>', 'repository directory', process.cwd())
   .option('--json', 'machine-readable JSON output')
