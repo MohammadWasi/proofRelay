@@ -6,9 +6,30 @@ ProofRelay is an Apache-2.0, local-first coordination engine for coding assistan
 
 The core requires **no account, API key, model provider, background service, telemetry, or hosted database**. Claude Code and OpenAI Codex are optional external products with their own terms and authentication. All original ProofRelay implementation is open source.
 
-This is an early release, not an audited production security boundary. [Security model](docs/security/README.md) · [Architecture](docs/architecture/overview.md) · [Competitive landscape](docs/competitive-landscape.md) · [Contributing](CONTRIBUTING.md)
+This is an early Assist beta, not an audited production security boundary. Full Managed Execution is incomplete; see [current boundaries](#current-boundaries-and-next-milestone). [Security model](docs/security/README.md) · [Architecture](docs/architecture/overview.md) · [Competitive landscape](docs/competitive-landscape.md) · [Contributing](CONTRIBUTING.md)
 
 Source and issue tracking: [MohammadWasi/proofRelay](https://github.com/MohammadWasi/proofRelay). Read the [code of conduct](CODE_OF_CONDUCT.md), [governance](GOVERNANCE.md), and [security reporting policy](SECURITY.md) before participating.
+
+## Install the npm beta
+
+The intended first npm release is **0.1.0-beta.1** on the `next` tag. After that version is published, install it with Node.js **24.18+** and npm; pnpm is not required to use the package:
+
+```sh
+npm install -g proofrelay@0.1.0-beta.1
+proofrelay --version
+proofrelay --help
+```
+
+To follow subsequent beta releases, use `npm install -g proofrelay@next`. From the repository where you want to coordinate work:
+
+```sh
+proofrelay init
+proofrelay connect --clients claude,codex --dry-run
+proofrelay connect --clients claude,codex
+proofrelay doctor
+```
+
+The CLI and `proofrelay-mcp` executable are included. Optional assistants require their own installation and authentication. See the [release checklist](docs/releases.md) for the publication and verification steps; the version in this source tree alone does not establish registry availability.
 
 ## Install and run from source
 
@@ -40,13 +61,12 @@ Run these from the target repository, or add `--workspace /absolute/path/to/proj
 For a local distributable:
 
 ```sh
-pnpm build
 pnpm pack
-npm install -g ./proofrelay-0.1.0.tgz
+npm install -g ./proofrelay-0.1.0-beta.1.tgz
 proofrelay --help
 ```
 
-This creates/installs a local tarball; it does not publish a package. No npm registry release is currently claimed. Source instructions use `node dist/cli.js` or `pnpm proofrelay` until installation. Maintainers follow the [release checklist](docs/releases.md) before publishing a release.
+The `prepack` hook builds the executables and generated schemas before packing. This creates/installs a local tarball; it does not publish a package. Source instructions use `node dist/cli.js` or `pnpm proofrelay` until installation. Maintainers follow the [release checklist](docs/releases.md) before publishing a release.
 
 ## Contracts and approval
 

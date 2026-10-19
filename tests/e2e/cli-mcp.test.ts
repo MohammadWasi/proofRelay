@@ -11,6 +11,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { RelayStore } from '../../packages/storage/src/index.js';
 import { RelayService } from '../../packages/workflows/src/index.js';
 import type { HandoffPackage, WorkRecord, VerificationReceipt } from '../../packages/contracts/src/index.js';
+import packageJson from '../../package.json' with { type: 'json' };
 
 const exec = promisify(execFile);
 const roots: string[] = [];
@@ -47,6 +48,13 @@ afterEach(async () => {
 });
 
 describe('CLI and real MCP STDIO interoperability', () => {
+  it('reports the package release version through the CLI and MCP handshake', async () => {
+    const result = await exec(process.execPath, ['--import', 'tsx', cliPath, '--version']);
+    expect(result.stdout.trim()).toBe(packageJson.version);
+    const c = await client(await workspace());
+    expect(c.getServerVersion()).toEqual({ name: 'proofrelay', version: packageJson.version });
+  });
+
   it('creates through CLI; Claude checkpoints; a fresh Codex client continues the same durable work (B/H)', async () => {
     const root = await workspace();
     const created = await cli(root, 'task', 'add', 'Implement the fixture') as unknown as WorkRecord;

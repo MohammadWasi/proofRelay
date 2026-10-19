@@ -1,6 +1,6 @@
 {
   "name": "proofrelay",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.1",
   "description": "Local-first work contracts, agent continuity, and independent verification",
   "type": "module",
   "license": "Apache-2.0",
@@ -14,9 +14,11 @@
   },
   "engines": { "node": ">=24.18.0" },
   "packageManager": "pnpm@11.25.0",
+  "publishConfig": { "access": "public", "tag": "next", "registry": "https://registry.npmjs.org/" },
   "bin": { "proofrelay": "dist/cli.js", "proofrelay-mcp": "dist/mcp.js" },
   "files": ["dist", "schemas", "packages/skills", "examples", "README.md", "LICENSE", "NOTICE", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "GOVERNANCE.md", "AGENTS.md", "docs"],
   "scripts": {
+    "prepack": "npm run build",
     "build": "node scripts/build.mjs && tsx scripts/schemas.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint packages tests scripts",

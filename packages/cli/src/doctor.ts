@@ -3,13 +3,14 @@ import { join } from 'node:path';
 import { Client } from '@modelcontextprotocol/client';
 import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 import { doctorProviders } from './integrations.js';
+import packageJson from '../../../package.json' with { type: 'json' };
 
 export async function doctor(workspace: string, serverPath: string) {
   const providers = await doctorProviders();
   const initialized = existsSync(join(workspace, '.proofrelay', 'state.sqlite'));
   let mcp: { ok: boolean; toolCount?: number; invocation?: unknown; error?: string } = { ok: false, error: 'Run proofrelay init first.' };
   if (initialized && existsSync(serverPath)) {
-    const client = new Client({ name: 'proofrelay-doctor', version: '0.1.0' });
+    const client = new Client({ name: 'proofrelay-doctor', version: packageJson.version });
     const transport = new StdioClientTransport({ command: process.execPath, args: [serverPath, '--workspace', workspace, '--read-only'], stderr: 'pipe' });
     try {
       await client.connect(transport, { timeout: 10_000 });
