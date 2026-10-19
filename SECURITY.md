@@ -1,8 +1,14 @@
 # Security policy
 
-ProofRelay 0.1 is an early implementation, not independently security-audited software. Only the current release line receives fixes until a maintenance policy is established.
+ProofRelay 0.1 is an early implementation, not independently security-audited software. Security fixes target `main` and the latest published release, if any. Older releases do not have a separate maintenance commitment. A package version in the source tree does not establish that a release has been published.
 
-Report vulnerabilities through the repository host's private security advisory feature when available. If it is unavailable, open a minimal issue requesting a private contact channel without exploit details or secrets. This source checkout intentionally does not invent a maintainer email or hosted repository URL.
+## Reporting a vulnerability
+
+Use [GitHub private vulnerability reporting](https://github.com/MohammadWasi/proofRelay/security/advisories/new) to contact the maintainer, [@MohammadWasi](https://github.com/MohammadWasi), without posting the report publicly. Include the affected commit or version, environment, expected security boundary, impact, and a minimal sanitized reproduction. Never include real credentials, private source code, or user databases.
+
+If private reporting is unavailable, open a minimal [issue](https://github.com/MohammadWasi/proofRelay/issues) requesting a private contact channel. Do not include vulnerability details or secrets in that issue. There is no guaranteed response or remediation time. The maintainer will assess reports and coordinate fixes and disclosure through the private advisory where possible.
+
+## Security boundaries
 
 The coordination database and terminal approval path share your operating-system identity. They cannot defend against a malicious same-user process or a coding assistant already authorized to execute arbitrary shell commands. Human approval means a trusted user reviews the contract in their own terminal; MCP cannot grant approval.
 

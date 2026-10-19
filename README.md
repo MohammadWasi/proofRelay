@@ -8,13 +8,17 @@ The core requires **no account, API key, model provider, background service, tel
 
 This is an early release, not an audited production security boundary. [Security model](docs/security/README.md) · [Architecture](docs/architecture/overview.md) · [Competitive landscape](docs/competitive-landscape.md) · [Contributing](CONTRIBUTING.md)
 
+Source and issue tracking: [MohammadWasi/proofRelay](https://github.com/MohammadWasi/proofRelay). Read the [code of conduct](CODE_OF_CONDUCT.md), [governance](GOVERNANCE.md), and [security reporting policy](SECURITY.md) before participating.
+
 ## Install and run from source
 
 Requirements: Node.js **24.18+**, pnpm **11.25.0**, and a local filesystem. Git is recommended; core operations also work in an ordinary directory. SQLite is supplied by Node, so no database service or native-addon compiler is needed.
 
-From this checkout:
+Clone the public repository, then install and validate it:
 
 ```sh
+git clone https://github.com/MohammadWasi/proofRelay.git
+cd proofRelay
 pnpm install --frozen-lockfile
 pnpm check
 pnpm demo
@@ -42,7 +46,7 @@ npm install -g ./proofrelay-0.1.0.tgz
 proofrelay --help
 ```
 
-This creates/installs a local tarball; it does not publish a package. No registry release or hosted repository URL is assumed. Source instructions use `node dist/cli.js` or `pnpm proofrelay` until installation.
+This creates/installs a local tarball; it does not publish a package. No npm registry release is currently claimed. Source instructions use `node dist/cli.js` or `pnpm proofrelay` until installation. Maintainers follow the [release checklist](docs/releases.md) before publishing a release.
 
 ## Contracts and approval
 
@@ -133,6 +137,12 @@ Next milestone: introduce an enforceable isolation backend, bind managed executi
 
 ## Verification and maintenance
 
-See [validation notes](docs/validation.md) for the observed checks and limitations. Tests cover setup preservation, continuity, failed verification, process termination, concurrent claims, secrets, missing providers, and CLI/MCP interoperability. CI is configured for macOS, Linux and Windows; only local results explicitly recorded in validation notes are claimed as run. Native Windows managed execution is disabled and verification cleanup currently stops the direct child only.
+See [validation notes](docs/validation.md) for the observed checks and limitations. Tests cover setup preservation, continuity, failed verification, process termination, concurrent claims, secrets, missing providers, and CLI/MCP interoperability. Hosted CI has passed on macOS, Linux and Windows for the recorded commit; subsequent revisions must pass their own checks. Native Windows managed execution is disabled and verification cleanup currently stops the direct child only.
 
 `pnpm audit --prod` checks registry advisories; `pnpm audit:licenses` checks the allowlisted runtime licenses and writes an inventory. Dependabot configuration proposes dependency updates. No publish, push, deploy or account mutation is part of the build.
+
+Report reproducible bugs and propose improvements through [GitHub issues](https://github.com/MohammadWasi/proofRelay/issues). Report vulnerabilities through [private security reporting](https://github.com/MohammadWasi/proofRelay/security/advisories/new), following [SECURITY.md](SECURITY.md). Never attach credentials, local coordination databases, or unsanitized transcripts.
+
+## License
+
+Original ProofRelay code is licensed under [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) and the [dependency license inventory](docs/dependency-licenses.json) for notices and dependency information. External assistants retain their own licenses and terms.

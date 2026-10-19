@@ -4,10 +4,18 @@
   "description": "Local-first work contracts, agent continuity, and independent verification",
   "type": "module",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadWasi/proofRelay.git"
+  },
+  "homepage": "https://github.com/MohammadWasi/proofRelay#readme",
+  "bugs": {
+    "url": "https://github.com/MohammadWasi/proofRelay/issues"
+  },
   "engines": { "node": ">=24.18.0" },
   "packageManager": "pnpm@11.25.0",
   "bin": { "proofrelay": "dist/cli.js", "proofrelay-mcp": "dist/mcp.js" },
-  "files": ["dist", "schemas", "packages/skills", "examples", "README.md", "LICENSE", "NOTICE", "SECURITY.md", "docs"],
+  "files": ["dist", "schemas", "packages/skills", "examples", "README.md", "LICENSE", "NOTICE", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "GOVERNANCE.md", "AGENTS.md", "docs"],
   "scripts": {
     "build": "node scripts/build.mjs && tsx scripts/schemas.ts",
     "typecheck": "tsc --noEmit",

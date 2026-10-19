@@ -1,6 +1,6 @@
 # Observed validation — 2026-10-19
 
-Local environment: macOS, Node **24.18.0**, pnpm **11.25.0**. The repository began empty and was initialized locally. No commits were pushed, packages published, real client settings modified, or model requests made during these checks.
+Local environment: macOS, Node **24.18.0**, pnpm **11.25.0**. The repository began empty and was initialized locally. The local checks below preceded public repository creation. The source was subsequently pushed to [MohammadWasi/proofRelay](https://github.com/MohammadWasi/proofRelay) with explicit user authorization. No registry packages were published, real client settings modified, or model requests made during these checks.
 
 ## Automated gate
 
@@ -45,4 +45,4 @@ Run `pnpm install --frozen-lockfile`, `pnpm check`, then `pnpm demo`. The demo w
 
 After building, normal setup uses four commands: `init`, `connect --dry-run`, `connect`, `doctor`. Each installed client may additionally require restart and a native project/MCP trust prompt. Execution adds one review/digest confirmation per new contract version. This is measurable setup work, not zero-friction onboarding. Tool downloads, provider installation, authentication, and native trust time are not included in local test durations.
 
-CI is configured for Linux, macOS and Windows. Those remote jobs have not been run from this local checkout. Do not interpret a green local macOS gate as proof of all operating-system behavior. Native Windows managed execution is disabled; local verifier cleanup has the documented direct-child limitation.
+The [first hosted CI run](https://github.com/MohammadWasi/proofRelay/actions/runs/39156468033), for initial commit `e63cd78`, passed the Linux, macOS and Windows check jobs and the dependency audit job. This confirms the configured checks on those runners, not every operating-system behavior. Native Windows managed execution remains disabled; local verifier cleanup has the documented direct-child limitation. Later revisions must independently pass their own CI run.
