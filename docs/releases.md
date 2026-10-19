@@ -7,7 +7,7 @@ Publishing a release is an explicit maintainer decision. A successful build, a p
 1. Start from the intended commit on `main` with a clean checkout. Confirm its required GitHub CI checks passed on supported platforms and review any outstanding security advisories.
 2. Review the changes, compatibility impact, dependency licenses, and known limitations. Update `CHANGELOG.md` and validation notes with observed results. Do not describe skipped provider tests as passing integrations.
 3. Set the intended package version and check any related examples or installation instructions. Use semantic versioning for package releases; portable contract/schema versions are separate and require explicit compatibility and migration review.
-4. From a clean checkout, run `pnpm install --frozen-lockfile`, `pnpm check`, `pnpm audit:licenses`, and `pnpm audit --prod`. Assess reported vulnerabilities and license changes before proceeding.
+4. From a clean checkout, run `pnpm install --frozen-lockfile`, `pnpm check`, `pnpm audit:licenses`, and `pnpm audit`. Assess reported runtime/development vulnerabilities and license changes before proceeding.
 5. Run `pnpm pack`. Inspect the tarball's contents for unexpected files, local state, credentials, private paths, and missing license notices. Install that exact tarball in an isolated temporary environment and verify `proofrelay --help`, `proofrelay --version`, and the documented local workflow.
 6. Confirm documentation names the supported Node/pnpm versions, security boundaries, unsupported capabilities, and the private vulnerability reporting channel. Record the source commit and a SHA-256 checksum for each published artifact.
 
